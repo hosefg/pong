@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ballmovement : MonoBehaviour
 {
@@ -20,8 +21,18 @@ public class ballmovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        
         if(other.collider.name == "dindingKanan" || other.collider.name == "dindingKiri"){
+            StartCoroutine(hitungMundur());
             GetComponent<Transform>().position = new Vector2(0,0);
+            
         }
+    }
+
+    IEnumerator hitungMundur()
+    {
+        
+        yield return new WaitForSeconds(1);
+        
     }
 }
