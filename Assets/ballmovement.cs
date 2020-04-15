@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ballmovement : MonoBehaviour
 {
 
-    public int speed = 30;
+    //public int speed = 30;
     // Start is called before the first frame update
 
     public Rigidbody2D sesuatu;
@@ -16,7 +16,11 @@ public class ballmovement : MonoBehaviour
 
     void Start()
     {
-        sesuatu.velocity = new Vector2(-1,-1) * speed;
+        int x = Random.Range(0,2) * 2 - 1;
+        int y = Random.Range(0,2) * 2 - 1;
+        int speed = Random.Range(20,26);
+        sesuatu.velocity = new Vector2(x,y) * speed;
+        sesuatu.GetComponent<Transform>().position = Vector2.zero;
         animator.SetBool("isMove",true);
     }
 
@@ -46,7 +50,10 @@ public class ballmovement : MonoBehaviour
         animator.SetBool("isMove",false);
         sesuatu.GetComponent<Transform>().position = Vector2.zero;
         yield return new WaitForSeconds(1);
-        sesuatu.velocity = new Vector2(-1,-1) * speed;
+        int x = Random.Range(0,2) * 2 - 1;
+        int y = Random.Range(0,2) * 2 - 1;
+        int speed = Random.Range(20,26);
+        sesuatu.velocity = new Vector2(x,y ) * speed;
         animator.SetBool("isMove",true);
         
         
