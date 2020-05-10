@@ -13,6 +13,8 @@ public class ballmovement : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource hitEffect;
+
 
     void Start()
     {
@@ -38,9 +40,10 @@ public class ballmovement : MonoBehaviour
     {
         
         if(other.collider.name == "dindingKanan" || other.collider.name == "dindingKiri"){
-            StartCoroutine(hitungMundur());
-            
-            
+            StartCoroutine(hitungMundur());  
+        }
+        if(other.collider.tag == "Player"){
+            hitEffect.Play();
         }
     }
 
